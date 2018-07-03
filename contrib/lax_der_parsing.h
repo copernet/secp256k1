@@ -51,7 +51,7 @@
 #ifndef SECP256K1_CONTRIB_LAX_DER_PARSING_H
 #define SECP256K1_CONTRIB_LAX_DER_PARSING_H
 
-#include <secp256k1.h>
+#include "secp256k1.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -77,7 +77,7 @@ extern "C" {
  *  encoded numbers are out of range, signature validation with it is
  *  guaranteed to fail for every message and public key.
  */
-int ecdsa_signature_parse_der_lax(
+SECP256K1_API int secp256k1_ecdsa_signature_parse_der_lax(
     const secp256k1_context* ctx,
     secp256k1_ecdsa_signature* sig,
     const unsigned char *input,

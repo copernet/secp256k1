@@ -1,0 +1,82 @@
+cmake_minimum_required(VERSION 3.10)
+project(secp256k1 C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(contrib)
+include_directories(include)
+include_directories(src)
+include_directories(src/java)
+include_directories(src/modules)
+include_directories(src/modules/ecdh)
+include_directories(src/modules/recovery)
+
+add_executable(secp256k1
+        contrib/lax_der_parsing.c
+        contrib/lax_der_parsing.h
+        contrib/lax_der_privatekey_parsing.c
+        contrib/lax_der_privatekey_parsing.h
+        include/secp256k1.h
+        include/secp256k1_ecdh.h
+        include/secp256k1_recovery.h
+        src/java/org_bitcoin_NativeSecp256k1.c
+        src/java/org_bitcoin_NativeSecp256k1.h
+        src/java/org_bitcoin_Secp256k1Context.c
+        src/java/org_bitcoin_Secp256k1Context.h
+        src/modules/ecdh/main_impl.h
+        src/modules/ecdh/tests_impl.h
+        src/modules/recovery/main_impl.h
+        src/modules/recovery/tests_impl.h
+        src/basic-config.h
+        src/bench.h
+        src/bench_ecdh.c
+        src/bench_ecmult.c
+        src/bench_internal.c
+        src/bench_recover.c
+        src/bench_sign.c
+        src/bench_verify.c
+        src/ecdsa.h
+        src/ecdsa_impl.h
+        src/eckey.h
+        src/eckey_impl.h
+        src/ecmult.h
+        src/ecmult_const.h
+        src/ecmult_const_impl.h
+        src/ecmult_gen.h
+        src/ecmult_gen_impl.h
+        src/ecmult_impl.h
+        src/ecmult_static_context.h
+        src/field.h
+        src/field_10x26.h
+        src/field_10x26_impl.h
+        src/field_5x52.h
+        src/field_5x52_asm_impl.h
+        src/field_5x52_impl.h
+        src/field_5x52_int128_impl.h
+        src/field_impl.h
+        src/gen_context.c
+        src/group.h
+        src/group_impl.h
+        src/hash.h
+        src/hash_impl.h
+        src/libsecp256k1-config.h
+        src/num.h
+        src/num_gmp.h
+        src/num_gmp_impl.h
+        src/num_impl.h
+        src/scalar.h
+        src/scalar_4x64.h
+        src/scalar_4x64_impl.h
+        src/scalar_8x32.h
+        src/scalar_8x32_impl.h
+        src/scalar_impl.h
+        src/scalar_low.h
+        src/scalar_low_impl.h
+        src/scratch.h
+        src/scratch_impl.h
+        src/secp256k1.c
+        src/testrand.h
+        src/testrand_impl.h
+        src/tests.c
+        src/tests_exhaustive.c
+        src/util.h)
