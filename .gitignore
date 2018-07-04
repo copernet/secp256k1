@@ -13,7 +13,8 @@ gen_context
 *.so
 *.a
 !.gitignore
-
+.idea/
+cmake-build-debug/
 Makefile
 configure
 .libs/
