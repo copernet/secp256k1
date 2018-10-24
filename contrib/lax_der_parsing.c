@@ -9,7 +9,10 @@
 
 #include "lax_der_parsing.h"
 
-int secp256k1_ecdsa_signature_parse_der_lax(const secp256k1_context* ctx, secp256k1_ecdsa_signature* sig, const unsigned char *input, size_t inputlen) {
+int secp256k1_ecdsa_signature_parse_der_lax(const secp256k1_context* ctx,
+                                            secp256k1_ecdsa_signature* sig,
+                                            const unsigned char *input,
+                                            size_t inputlen) {
     size_t rpos, rlen, spos, slen;
     size_t pos = 0;
     size_t lenbyte;
@@ -142,6 +145,8 @@ int secp256k1_ecdsa_signature_parse_der_lax(const secp256k1_context* ctx, secp25
         overflow = !secp256k1_ecdsa_signature_parse_compact(ctx, sig, tmpsig);
     }
     if (overflow) {
+        /* Overwrite the result again with a correctly-parsed but invalid
+           signature if parsing failed. */
         memset(tmpsig, 0, 64);
         secp256k1_ecdsa_signature_parse_compact(ctx, sig, tmpsig);
     }

@@ -8,6 +8,7 @@ else
 JNI_LIB =
 endif
 include_HEADERS = include/secp256k1.h
+include_HEADERS += include/secp256k1_ecdh.h
 include_HEADERS += contrib/lax_der_parsing.h
 noinst_HEADERS =
 noinst_HEADERS += src/scalar.h
