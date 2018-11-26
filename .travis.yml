@@ -62,7 +62,6 @@ matrix:
 before_install: mkdir -p `dirname $GUAVA_JAR`
 install: if [ ! -f $GUAVA_JAR ]; then wget $GUAVA_URL -O $GUAVA_JAR; fi
 before_script: 
-  - chmod +x autoinstall.sh
   - sudo ./autoinstall.sh
 script:
  - if [ -n "$HOST" ]; then export USE_HOST="--host=$HOST"; fi
