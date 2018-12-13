@@ -55,3 +55,7 @@ Build steps
 libsecp256k1 is built using autotools:
 
     $ ./autoinstall.sh
+
+autotools can be install by homebrew on Mac OSX, if needed.
+
+     brew install automake
